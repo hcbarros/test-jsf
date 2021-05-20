@@ -1,29 +1,43 @@
 package br.com.usuarios_jsf.view;
 
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+
+import br.com.usuarios_jsf.model.Usuario;
+import br.com.usuarios_jsf.service.UsuarioService;
+
+import javax.inject.Inject;
 
 @Named 
 @RequestScoped
 public class UserBean {
 	
-	private String input;
-    private String output;
+	private Usuario usuario = new Usuario();
+    private List<Usuario> usuarios;
 
+    @Inject
+    private UsuarioService service;
+    
+    @PostConstruct
+    public void init() {
+        usuarios = service.list();
+    }
+    
     public void submit() {
-        output = "Hello World! You have typed: " + input;
+        service.persistir(usuario);
+        usuarios = service.list();
+        usuario = new Usuario();
     }
 
-    public String getInput() {
-        return input;
+    public Usuario getUsuario() {
+        return usuario;
     }
-
-    public void setInput(String input) {
-        this.input = input;
-    }
-
-    public String getOutput() {
-        return output;
+    
+    public List<Usuario> getUsuarios() {
+        return usuarios;
     }
 
 }

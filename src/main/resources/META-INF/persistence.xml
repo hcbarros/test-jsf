@@ -6,6 +6,13 @@
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
 >
     
-	<persistence-unit name="usuarios_jsf"></persistence-unit>>
+	<persistence-unit name="usuarios_jsf" transaction-type="JTA">
+    <jta-data-source>java:global/DataSourceName</jta-data-source>
+	    <properties>
+	        <property
+	            name="javax.persistence.schema-generation.database.action"
+	            value="drop-and-create" />
+	    </properties>
+	</persistence-unit>
 
 </persistence>

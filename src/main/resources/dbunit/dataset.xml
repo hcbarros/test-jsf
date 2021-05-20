@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+    <TB_USUARIO num_versao="1" email="rosaalexandrino@gmail.com" senha="hBuxA23" nome="Rosa Alexandrino" />
+    <TB_USUARIO num_versao="1" email="igormoraes@gmail.com" senha="LbyI20" nome="Igor Moraes" />
+    <TB_USUARIO num_versao="1" email="joanamendonca@gmail.com" senha="aopHMXX9" nome="Joana Mendonça" />
+    <TB_USUARIO num_versao="1" email="mariojorge@outlook.com" senha="2pKbVjpe" nome="Mario Jorge" />
+    <TB_USUARIO num_versao="1" email="maiconrodrigues@bol.com.br" senha="MYJZf8gQ" nome="Maicon Rodrigues" />
+    <TB_USUARIO num_versao="1" email="joicesantos@hotmail.com" senha="oB6LE1eF" nome="Joice Santos" />
+    <TB_USUARIO num_versao="1" email="mariaaparecida@live.com" senha="oPpP2rZN" nome="Maria Aparecida" />
+    <TB_USUARIO num_versao="1" email="fernandotads@uol.com.br" senha="j8NsFXNS" nome="Fernando Bezerra" />
+    <TB_USUARIO num_versao="1" email="alanaarruda@yahoo.com.br" senha="u5mrl9KL" nome="Alana Arruda" />
+    <TB_USUARIO num_versao="1" email="marcoslima@yahoo.com" senha="hdm1IwmZ" nome="Marcos Lima" />
+    <TB_USUARIO num_versao="1" email="igorribas@live.com" senha="gHaiID" nome="Igor Ribas" />
+    <TB_USUARIO num_versao="1" email="cassiabatista@uol.com.br" senha="PmLLNS" nome="Cássia Batista" />
+    <TB_USUARIO num_versao="1" email="gustavogarcia@yahoo.com.br" senha="NamSDN" nome="Gustavo Garcia" />
+    <TB_USUARIO num_versao="1" email="brunomachado@yahoo.com" senha="Uiab90" nome="Bruno Machado" />
+    <TB_USUARIO num_versao="1" email="marcosmedeiros@yahoo.com.br" senha="A976snsj" nome="Marcos Medeiros" />
+    <TB_USUARIO num_versao="1" email="nayarapinheiro@yahoo.com" senha="654JhG" nome="Nayara Pinheiro" />
+    
+    <TB_TELEFONE usuario_id="1" numero="975621486" ddd="81" tipo="celular" />
+    <TB_TELEFONE usuario_id="1" numero="993845625" ddd="81" tipo="celular" />
+    <TB_TELEFONE usuario_id="1" numero="23758461" ddd="81" tipo="fixo" /> 
+    
+    <TB_TELEFONE usuario_id="2" numero="984756321" ddd="81" tipo="celular" />
+    <TB_TELEFONE usuario_id="2" numero="975624215" ddd="81" tipo="celular" /> 
+    <TB_TELEFONE usuario_id="2" numero="31025645" ddd="81" tipo="fixo" />
+    
+    <TB_TELEFONE usuario_id="3" numero="987097010" ddd="83" tipo="celular" />
+    <TB_TELEFONE usuario_id="3" numero="978542618" ddd="83" tipo="celular" /> 
+    <TB_TELEFONE usuario_id="3" numero="21023655" ddd="83" tipo="fixo" />
+    
+    <TB_TELEFONE usuario_id="4" numero="996457243" ddd="87" tipo="celular" />
+    <TB_TELEFONE usuario_id="4" numero="30152642" ddd="87" tipo="fixo" /> 
+    
+   	<TB_TELEFONE usuario_id="5" numero="996457215" ddd="87" tipo="celular" />
+    <TB_TELEFONE usuario_id="5" numero="30152642" ddd="87" tipo="fixo" /> 
+    
+    <TB_TELEFONE usuario_id="6" numero="985641324" ddd="81" tipo="celular" />
+    <TB_TELEFONE usuario_id="6" numero="32025215" ddd="81" tipo="fixo" /> 
+           
+</dataset>
+
