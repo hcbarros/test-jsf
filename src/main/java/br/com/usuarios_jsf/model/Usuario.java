@@ -27,7 +27,7 @@ import javax.validation.constraints.Size;
 @NamedQueries(
         {
             @NamedQuery(
-                    name = "Usuario.RecuperarPorEmail",
+                    name = "Usuario.RecuperarPorEmailESenha",
                     query = "SELECT u FROM Usuario u WHERE u.email = :email AND u.senha = :senha"
             )
         }
@@ -48,15 +48,8 @@ public class Usuario implements Serializable {
 	@Size(max = 100, message = "O nome deve possuir no máximo 100 caracteres!")
 	private String nome;
 	
-	@Pattern(regexp="^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$",
-			message = "Email inválido!")
-	@NotNull(message = "Informe um email!")
-	@Size(max = 100, message = "O email deve possuir no máximo 100 caracteres!")
 	private String email;
 	
-	@NotNull(message = "A senha não deve ser nula!")
-	@NotBlank(message = "A senha não deve estar em branco!")
-	@Size(min = 6, max = 50, message = "A senha deve ter entre 6 e 50 caracteres!")
 	private String senha;
 	
 	@OneToMany(mappedBy = "usuario", 

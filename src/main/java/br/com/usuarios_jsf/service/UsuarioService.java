@@ -37,10 +37,10 @@ public class UsuarioService {
          entityManager.persist(usuario);
     }
 	
-	public List<Usuario> consultarPorEmail(Usuario u) {
+	public List<Usuario> consultarUsuario(Usuario u) {
 		TypedQuery<Usuario> query
         			= entityManager.createNamedQuery(
-        					"Usuario.RecuperarPorEmail", Usuario.class);
+        					"Usuario.RecuperarPorEmailESenha", Usuario.class);
 					query.setParameter("email", u.getEmail());
 					query.setParameter("senha", u.getSenha());
 		return query.getResultList();

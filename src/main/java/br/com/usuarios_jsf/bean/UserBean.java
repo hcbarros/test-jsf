@@ -18,11 +18,7 @@ import javax.inject.Inject;
 @RequestScoped
 public class UserBean {
 	
-	private Usuario usuario = new Usuario();
     private List<Usuario> usuarios;
-    private String find = "";
-    
-    private List<Telefone> telefones;
     
     @Inject
     private UsuarioService usuarioService;
@@ -31,43 +27,20 @@ public class UserBean {
     @PostConstruct
     public void init() {
     	usuarios = usuarioService.list();
-    	if(usuarios.size() == 0) load();
-    	usuarios = usuarioService.list();
-    	
-        telefones = usuarios.get(0).getTelefones();
-    }
-    
-    public void submit() {
-        usuarioService.persistir(usuario);
-        usuarios = usuarioService.list();
-        usuario = new Usuario();
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
     }
     
     public List<Usuario> getUsuarios() {
         return usuarios;
     }
     
-    public List<Telefone> getTelefones() {
-        return telefones;
+    public void excluir(Usuario u) {
+    	usuarioService.remover(u);
+    	usuarios = usuarioService.list();
     }
     
-    public String getFind() {
-    	return find;
-    }
-    
-    public void load() {
+    public String editar(Usuario u) {
     	
-    	Telefone telefone = new Telefone(81, "958455215", "celular");
-    	List<Telefone> tel = new ArrayList<>();
-    	tel.add(telefone);
-		Usuario u = new Usuario("dasdas", "dasda@dadsa.com", "sendasha", tel);
-		telefone.setUsuario(u);
-		
-		usuarioService.persistir(u);
-	}
-
+    	return "";
+    }
+    
 }

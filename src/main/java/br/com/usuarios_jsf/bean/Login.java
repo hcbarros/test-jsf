@@ -1,5 +1,6 @@
 package br.com.usuarios_jsf.bean;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +13,7 @@ import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.usuarios_jsf.bean.servlet.VerifyRecaptcha;
 import br.com.usuarios_jsf.model.Telefone;
 import br.com.usuarios_jsf.model.Usuario;
 import br.com.usuarios_jsf.service.UsuarioService;
@@ -24,8 +26,6 @@ public class Login {
     private UsuarioService usuarioService;
 	
 	private Usuario usuario = new Usuario();
-	private String email = "";
-	private String senha = "";
 	private UIComponent mybutton;
 	
 	@PostConstruct
@@ -41,16 +41,32 @@ public class Login {
 	public String fazerLogin() {
 		
 		FacesContext context = FacesContext.getCurrentInstance();
+		String gRecaptchaResponse = context.
+				getExternalContext().getRequestParameterMap().get("g-recaptcha-response");
+		boolean verify = false;
 		
-		List<Usuario> list = usuarioService.consultarPorEmail(usuario);
+		try {
+			verify = VerifyRecaptcha.verify(gRecaptchaResponse);
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		if(!verify) {
+			context.addMessage(mybutton.getClientId(context), 
+	                 new FacesMessage("","Selecione o captcha!"));
+	        return "usuarioInexistente";
+		}
+		
+		List<Usuario> list = usuarioService.consultarUsuario(usuario);
 		
 		if(!list.isEmpty() && list.get(0).getSenha().equals(usuario.getSenha())) 
 			return "usuarioEncontrado";
 		
 		context.addMessage(mybutton.getClientId(context), 
-                 new FacesMessage("","Login ou senha invalidos!"));
+                 new FacesMessage("","Login ou senha inválidos!"));
         return "usuarioInexistente";
 	}
+	
 	
 	public UIComponent getMybutton() {
         return mybutton;
@@ -60,21 +76,7 @@ public class Login {
         this.mybutton = mybutton;
     }
 	
-	public String getEmail() {
-		return email;
-	}
 	
-	public void setEmail(String email) {
-        this.email = email;
-    }
-	
-	public String getSenha() {
-		return senha;
-	}
-	
-	public void setSenha(String senha) {
-        this.senha = senha;
-    }
 	
 	
 	public void carreagarDados() {
@@ -85,7 +87,7 @@ public class Login {
     	Telefone t3 = new Telefone(81, "23758461", "fixo");
     	fones.addAll(Arrays.asList(t1,t2,t3));
     	
-		Usuario u1 = new Usuario("Rosa Alexandrino", "rosaalexandrino@gmail.com", "hBuxA23", fones);
+		Usuario u1 = new Usuario("José Alexandre", "josealexandre@gmail.com", "hBuxA23", fones);
 		t1.setUsuario(u1);
 		t2.setUsuario(u1);
 		t3.setUsuario(u1);

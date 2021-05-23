@@ -8,27 +8,46 @@
 	<f:view contentType="text/html">
 
 	    <h:head>
-	        <title>Cadastro de usuários</title>
+	        <title>Cadastro - SEFAZ</title>
 	        <script src="https://www.google.com/recaptcha/api.js"></script>
 	    </h:head>
 	    
 	    <h:body >
 	        <h:graphicImage library="imagens" name="logo.png" id="sefaz" title="Secretaria da Fazenda"/>
-	        <h4>Cadastro de usuários</h4>
+	        <h4>Login</h4>
 	        <h:form>
+	        
+	        	<p:outputLabel binding="#{login.mybutton}" id="mybutton" />
+	        
 	            <h:panelGrid id="formlogin">
 	                <h:outputText value="Email:" />
-	                <p:inputText id="email" value="#{login.usuario.email}" />      
+	                <p:inputText id="email" required="true" maxlength="100"
+        						requiredMessage="Informe um email"
+        						validatorMessage="Formato de email inválido!" value="#{login.usuario.email}" >
+        				<f:validateRegex
+        					pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />		
+	                </p:inputText>      
+					<a style="color:red; font-size: 20px">
+	                	<p:message for="email" />
+	                </a>
 	
 	                <h:outputText value="Senha:" />
-	                <p:password id="senha" value="#{login.usuario.senha}"/>
+	                <p:password id="senha" value="#{login.usuario.senha}" required="true" 
+	                			requiredMessage="Informe a senha"
+        						validatorMessage="A senha deve possuir entre 6 e 50 caracteres!" >
+	                
+	                	<f:validateLength minimum="6" maximum="50" />
+	                </p:password>
+	                <a style="color:red; font-size: 20px">
+	                	<p:message for="senha" />
+	                </a>
+	                
 	            </h:panelGrid>
 	            <p></p>
 	            <div class="g-recaptcha" data-sitekey="6LcA4BETAAAAAI-bIVcCocgXyiLZ43bCJ-JyCvWV"></div>
 	            <br></br>
 	            <p:commandButton ajax="false"
 	                     action="#{login.fazerLogin()}" value="Entrar" />
-	            <p:outputLabel binding="#{login.mybutton}" id="mybutton" />
 	            <a style="color:red; font-size: 20px"><h:message for="mybutton" /></a>
 	            
 	        </h:form>
