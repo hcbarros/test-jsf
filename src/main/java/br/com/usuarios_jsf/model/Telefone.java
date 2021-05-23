@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +18,6 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "TB_TELEFONE")
 @Access(AccessType.FIELD)
 public class Telefone implements Serializable {
 
@@ -29,7 +29,6 @@ public class Telefone implements Serializable {
 	
 	private Integer ddd;
 	
-	@Pattern(regexp = "[0-9]")
 	@Size(min = 8, max = 9, message = "O telefone deve possuir 8 ou 9 números!")
 	private String numero;
 	
@@ -38,7 +37,6 @@ public class Telefone implements Serializable {
 	private String tipo;
 	
 	@ManyToOne
-	@JoinColumn(name = "usuario_id")
     private Usuario usuario;
 	
 	
@@ -46,12 +44,11 @@ public class Telefone implements Serializable {
 		
 	}
 
-	public Telefone(Integer ddd, String numero, String tipo, Usuario usuario) {
+	public Telefone(Integer ddd, String numero, String tipo) {
 		
 		this.ddd = ddd;
 		this.numero = numero;
 		this.tipo = tipo;
-		this.usuario = usuario;
 	}
 
 

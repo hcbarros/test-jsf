@@ -1,0 +1,206 @@
+    
+    [
+    	{
+    		"nome": "Rosa Alexandrino",
+    		"email": "rosaalexandrino@gmail.com",
+    		"senha": "hBuxA23",
+    		"telefones": [
+    			{
+    				"numero": "975621486",
+    				"ddd": 81,
+    				"tipo": "celular"
+    			},
+    			{
+    				"numero": "993845625",
+    				"ddd": 81,
+    				"tipo": "celular"
+    			},
+    			{
+    				"numero": "23758461",
+    				"ddd": 81,
+    				"tipo": "fixo"
+    			}
+    			
+    		]
+    	},
+    	
+    	{
+    		"nome": "Igor Moraes",
+    		"email": "igormoraes@gmail.com",
+    		"senha": "LbyI20",
+    		"telefones": [
+    			{
+    				"numero": "984756321",
+    				"ddd": 81,
+    				"tipo": "celular"
+    			},
+    			{
+    				"numero": "975624215",
+    				"ddd": 81,
+    				"tipo": "celular"
+    			},
+    			{
+    				"numero": "31025645",
+    				"ddd": 81,
+    				"tipo": "fixo"
+    			}
+    			
+    		]
+    	},
+    	
+    	{
+    		"nome": "Joana Mendonça",
+    		"email": "joanamendonca@gmail.com",
+    		"senha": "aopHMXX9",
+    		"telefones": [
+    			{
+    				"numero": "987097010",
+    				"ddd": 83,
+    				"tipo": "celular"
+    			},
+    			{
+    				"numero": "978542618",
+    				"ddd": 83,
+    				"tipo": "celular"
+    			},
+    			{
+    				"numero": "21023655",
+    				"ddd": 83,
+    				"tipo": "fixo"
+    			}
+    			
+    		]
+    	},
+  
+    	{
+    		"nome": "Mario Jorge",
+    		"email": "mariojorge@outlook.com",
+    		"senha": "2pKbVjpe",
+    		"telefones": [
+    			{
+    				"numero": "996457243",
+    				"ddd": 87,
+    				"tipo": "celular"
+    			},
+    			{
+    				"numero": "30152642",
+    				"ddd": 87,
+    				"tipo": "fixo"
+    			}    			
+    		]
+    	},
+
+    	{
+    		"nome": "Maicon Rodrigues",
+    		"email": "maiconrodrigues@bol.com.br",
+    		"senha": "MYJZf8gQ",
+    		"telefones": [
+    			{
+    				"numero": "996457215",
+    				"ddd": 87,
+    				"tipo": "celular"
+    			},
+    			{
+    				"numero": "30152642",
+    				"ddd": 87,
+    				"tipo": "fixo"
+    			}    			
+    		]
+    	},
+
+    	{
+    		"nome": "Joice Santos",
+    		"email": "joicesantos@hotmail.com",
+    		"senha": "oB6LE1eF",
+    		"telefones": [
+    			{
+    				"numero": "985641324",
+    				"ddd": 81,
+    				"tipo": "celular"
+    			},
+    			{
+    				"numero": "32025215",
+    				"ddd": 81,
+    				"tipo": "fixo"
+    			}    			
+    		]
+    	},
+	
+    	{
+    		"nome": "Maria Aparecida",
+    		"email": "mariaaparecida@live.com",
+    		"senha": "oPpP2rZN",
+    		"telefones": [
+    			{
+    				"numero": "99648122",
+    				"ddd": 81,
+    				"tipo": "celular"
+    			}
+    		]
+    	},
+    	
+    	{
+    		"nome": "Fernando Bezerra",
+    		"email": "fernandotads@uol.com.br",
+    		"senha": "j8NsFXNS",
+    		"telefones": []
+    	},
+    	
+    	{
+    		"nome": "Alana Arruda",
+    		"email": "alanaarruda@yahoo.com.br",
+    		"senha": "u5mrl9KL",
+    		"telefones": []
+    	},
+    	
+    	{
+    		"nome": "Marcos Lima",
+    		"email": "marcoslima@yahoo.com",
+    		"senha": "hdm1IwmZ",
+    		"telefones": []
+    	},
+    	
+    	{
+    		"nome": "Igor Ribas",
+    		"email": "igorribas@live.com",
+    		"senha": "gHaiID",
+    		"telefones": []
+    	},
+    	
+    	{
+    		"nome": "Cássia Batista",
+    		"email": "cassiabatista@uol.com.br",
+    		"senha": "PmLLNS",
+    		"telefones": []
+    	},
+    	
+    	{
+    		"nome": "Gustavo Garcia",
+    		"email": "gustavogarcia@yahoo.com.br",
+    		"senha": "NamSDN",
+    		"telefones": []
+    	},
+    	
+    	{
+    		"nome": "Bruno Machado",
+    		"email": "brunomachado@yahoo.com",
+    		"senha": "Uiab90",
+    		"telefones": []
+    	},
+    	
+    	{
+    		"nome": "Marcos Medeiros",
+    		"email": "marcosmedeiros@yahoo.com.br",
+    		"senha": "A976snsj",
+    		"telefones": []
+    	},
+    	
+    	{
+    		"nome": "Nayara Pinheiro",
+    		"email": "nayarapinheiro@yahoo.com",
+    		"senha": "654JhG",
+    		"telefones": []
+    	}
+    ]
+ 
+

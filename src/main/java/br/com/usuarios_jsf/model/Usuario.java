@@ -9,10 +9,13 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,8 +24,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "Usuario.RecuperarPorEmail",
+                    query = "SELECT u FROM Usuario u WHERE u.email = :email AND u.senha = :senha"
+            )
+        }
+)
+
 @Entity
-@Table(name = "TB_USUARIO")
 @Access(AccessType.FIELD)
 public class Usuario implements Serializable {
 
@@ -48,9 +59,9 @@ public class Usuario implements Serializable {
 	@Size(min = 6, max = 50, message = "A senha deve ter entre 6 e 50 caracteres!")
 	private String senha;
 	
-	
 	@OneToMany(mappedBy = "usuario", 
-            cascade = CascadeType.ALL, orphanRemoval = true)
+            cascade = CascadeType.ALL, 
+            fetch=FetchType.EAGER, orphanRemoval = true)
     private List<Telefone> telefones;
 	
 	
@@ -59,7 +70,6 @@ public class Usuario implements Serializable {
 	}
 
 	public Usuario(String nome, String email, String senha, List<Telefone> telefones) {
-
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;

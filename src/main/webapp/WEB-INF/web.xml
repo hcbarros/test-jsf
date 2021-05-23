@@ -27,7 +27,7 @@
   </session-config>
   
   <welcome-file-list>
-    	<welcome-file>users.xhtml</welcome-file>    
+    	<welcome-file>login.xhtml</welcome-file>    
   </welcome-file-list>
   
   <data-source>

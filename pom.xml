@@ -3,22 +3,21 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.br</groupId>
-  <artifactId>usuarios-jsf</artifactId>
+  <groupId>br.com.test-jsf</groupId>
+  <artifactId>test-jsf</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+ 
   <packaging>war</packaging>
   
   <properties>
-       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-       <maven.compiler.source>11</maven.compiler.source>
-       <maven.compiler.target>11</maven.compiler.target>
-       <failOnMissingWebXml>false</failOnMissingWebXml>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <failOnMissingWebXml>false</failOnMissingWebXml>
   </properties>
   
   <dependencies>
-  
-       <dependency>
+	  
+	   <dependency>
            <groupId>jakarta.platform</groupId>
            <artifactId>jakarta.jakartaee-api</artifactId>
            <version>8.0.0</version>
@@ -30,6 +29,12 @@
 		   <artifactId>h2</artifactId>
 		   <version>1.4.200</version>
 	   </dependency>
+	   
+	   <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>7.0</version>
+       </dependency>
        
        <dependency>
             <groupId>junit</groupId>
@@ -39,13 +44,11 @@
         </dependency>
         
         <dependency>
-            <groupId>org.dbunit</groupId>
-            <artifactId>dbunit</artifactId>
-            <version>2.7.0</version>
-            <type>jar</type>
-        </dependency>
-       
+	      	<groupId>com.googlecode.json-simple</groupId>
+    	  	<artifactId>json-simple</artifactId>
+      	  	<version>1.1.1</version>
+	    </dependency>
+	    
   </dependencies>
-  
   
 </project>
