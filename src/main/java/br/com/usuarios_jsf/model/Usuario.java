@@ -29,6 +29,10 @@ import javax.validation.constraints.Size;
             @NamedQuery(
                     name = "Usuario.RecuperarPorEmailESenha",
                     query = "SELECT u FROM Usuario u WHERE u.email = :email AND u.senha = :senha"
+            ),
+            @NamedQuery(
+                    name = "Usuario.RecuperarPorEmail",
+                    query = "SELECT u FROM Usuario u WHERE u.email = :email"
             )
         }
 )

@@ -51,16 +51,15 @@ public class Login {
 			e.printStackTrace();
 		}
 		
-		if(!verify) {
-			context.addMessage(mybutton.getClientId(context), 
-	                 new FacesMessage("","Selecione o captcha!"));
-	        return "usuarioInexistente";
-		}
+//		if(!verify) {
+//			context.addMessage(mybutton.getClientId(context), 
+//	                 new FacesMessage("","Selecione o captcha!"));
+//	        return "usuarioInexistente";
+//		}
 		
-		List<Usuario> list = usuarioService.consultarUsuario(usuario);
+		Usuario u = usuarioService.consultarPorEmailESenha(usuario);
 		
-		if(!list.isEmpty() && list.get(0).getSenha().equals(usuario.getSenha())) 
-			return "usuarioEncontrado";
+		if(u != null) return "usuarioEncontrado";
 		
 		context.addMessage(mybutton.getClientId(context), 
                  new FacesMessage("","Login ou senha inválidos!"));

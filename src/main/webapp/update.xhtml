@@ -25,9 +25,9 @@
 	        
 			        <h:form>
 			        
-			        	<p:outputLabel binding="#{login.mybutton}" id="mybutton" />
+			        	<p:outputLabel binding="#{update.mybutton}" id="mybutton" />
 			        
-			            <h:panelGrid id="formlogin">
+			            <h:panelGrid id="form">
 			                
 			                <h:outputText value="Nome:" />
 			                <p:inputText id="nome" required="true" maxlength="100"
@@ -59,8 +59,8 @@
 			                	<p:message for="senha" />
 			                </a>
 			                
-			                <p:carousel id="carrosel" style="width:300px; height:225px" value="#{update.telefones}" var="fone" 
-				                           		itemStyle="height:160px;margin:10px auto;" numVisible="1" 
+			                <p:carousel id="carrosel" style="width:300px; height:100%" value="#{update.telefones}" var="fone" 
+				                           		itemStyle="height:60%;margin:10px auto;" numVisible="1" 
 				                           		easing="easeOutBounce" circular="true" headerText="Telefones">
 												    
 									<h:panelGrid columns="2"  columnClasses="label,value">
@@ -92,16 +92,25 @@
 		                                	
 				                                  <f:ajax execute="@this" render="carrosel" />	                                            	
 				                            </p:commandButton>
+				                            
+				                            <h:outputLabel>
+					                            <a style="color:red; font-size: 20px">
+								                	<p:message for="ddd" />
+								                	<p:message for="numero" />
+								                	<p:message for="tipo" />
+								                </a>
+								            </h:outputLabel>    
 												           
 									</h:panelGrid>
 												
 							</p:carousel>
 			                
+			                
 			            </h:panelGrid>
 			           
 			            <br></br>
-			            <p:commandButton ajax="false"
-			                     action="#{login.fazerLogin()}" value="Editar" />
+			            <p:commandButton ajax="false" action="#{update.editar()}" value="Editar" />
+			            
 			            <a style="color:red; font-size: 20px"><h:message for="mybutton" /></a>
 			            
 			        </h:form>

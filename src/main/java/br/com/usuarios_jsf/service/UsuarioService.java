@@ -37,25 +37,39 @@ public class UsuarioService {
          entityManager.persist(usuario);
     }
 	
-	public List<Usuario> consultarUsuario(Usuario u) {
+	
+	public Usuario consultarPorEmailESenha(Usuario u) {
 		TypedQuery<Usuario> query
         			= entityManager.createNamedQuery(
         					"Usuario.RecuperarPorEmailESenha", Usuario.class);
 					query.setParameter("email", u.getEmail());
 					query.setParameter("senha", u.getSenha());
-		return query.getResultList();
+		return query.getResultList().isEmpty() ? null :
+					query.getResultList().get(0);
+	}
+	
+	
+	public Usuario consultarPorEmail(Usuario u) {
+		TypedQuery<Usuario> query
+        			= entityManager.createNamedQuery(
+        					"Usuario.RecuperarPorEmail", Usuario.class);
+					query.setParameter("email", u.getEmail());
+		return query.getResultList().isEmpty() ? null :
+					query.getResultList().get(0);
 	}
 	
 	
 	public void remover(@Valid Usuario usuario){
-		 usuario = entityManager.merge(usuario);
-            entityManager.remove(usuario);
-            entityManager.flush();
+        usuario = entityManager.merge(usuario);
+		entityManager.remove(usuario);
+        entityManager.flush();
     }
+	
 	
 	public Usuario getUsuario(Long id) {
 		return entityManager.find(Usuario.class, id);
 	}
+	
 	
 	public List<Usuario> list() {
         return entityManager

@@ -46,8 +46,7 @@
 								
 								<p:dialog width="300" height="200" modal="true" appendTo="@(body)" header="Telefones" 
 		                             				 widgetVar="#{usuario.id}" hideEffect="clip" showEffect="clip">                               
-		                               		                           				                           		
-				                           <p:outputLabel style="font-size:20px; font-weight: bold" />                               	
+		                               		                           				                           		                           	
 				                           <p:carousel value="#{usuario.telefones}" var="fone" 
 				                           		itemStyle="height:100px;text-align:center; margin: 20px auto;" numVisible="1" 
 				                           		easing="easeOutBounce" circular="true">
@@ -71,7 +70,7 @@
                             </p:column>
                             
                             <p:column style="text-align: center; width: 25px;" >
-		                            <p:commandLink ajax="false" actionListener="#{update.setValues(usuario)}" 
+		                            <p:commandLink ajax="false" process="@this" actionListener="#{update.setValues(usuario)}" 
 		                                			action="/update.xhtml">
 		                                	
 		                                  <p:graphicImage style="width:20px; height:20px" library="imagens" name="edit.png"/>		                                            	
@@ -93,8 +92,6 @@
                         </p:dataTable>
                         
                     </h:form>   
-                    
-                    
                     
                     
                 </p:layoutUnit>
