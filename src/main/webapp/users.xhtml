@@ -22,11 +22,29 @@
                     <p:graphicImage style="width: 180px; margin-left: 20px;" library="imagens" name="logo.png"/>
                 </p:layoutUnit>
 
+				<p:layoutUnit position="west" size="210" header="Servicos" collapsible="true">
+                
+                    <h:form>
+	                    <p:menu>
+	                        <p:submenu label="Opções">
+	                            	                 			                        
+	                            <p:menuitem ajax="false" action="/create.xhtml" value="Adicionar usuário"/>	     
+	                                                                    
+	                            <p:menuitem ajax="false" actionListener="#{userBean.sair()}" 
+	                            					value="Sair"/>                              
+	                            	           
+	                        </p:submenu>
+	
+	                    </p:menu>
+                    </h:form>
+                    
+                </p:layoutUnit>
+
 
                 <p:layoutUnit position="center">
                                              
                     <h:form>
-                        <p:dataTable id="radioDT" style="width: 95%; margin: 20px auto;" var="usuario" value="#{userBean.usuarios}" rowKey="#{usuario.id}">
+                        <p:dataTable id="radioDT" var="usuario" value="#{userBean.usuarios}" rowKey="#{usuario.id}">
                             <f:facet name="header">
                                 Usuários
                             </f:facet>                            

@@ -38,7 +38,7 @@ public class UserBean {
     	usuarios = usuarioService.list();
     }
     
-    public String editar(Usuario u) {
+    public String sair() {
     	
     	return "";
     }
