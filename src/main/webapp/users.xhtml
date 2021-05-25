@@ -64,12 +64,17 @@
 								
 								<p:dialog width="300" height="200" modal="true" appendTo="@(body)" header="Telefones" 
 		                             				 widgetVar="#{usuario.id}" hideEffect="clip" showEffect="clip">                               
+		                               		                           				   
+										   <h:outputText rendered="#{empty usuario.telefones}" 
+										   				value="Esse usuário não cadastrou telefone!" />			 		                              		                           				   
 		                               		                           				                           		                           	
-				                           <p:carousel value="#{usuario.telefones}" var="fone" 
+				                           <p:carousel rendered="#{not empty usuario.telefones}" 
+				                           		value="#{usuario.telefones}" var="fone" 
 				                           		itemStyle="height:100px;text-align:center; margin: 20px auto;" numVisible="1" 
-				                           		easing="easeOutBounce" circular="true">
+				                           		easing="easeOutBounce" circular="true">    
 												    
-												<h:panelGrid columns="2" style="width:100%" columnClasses="label,value">
+												<h:panelGrid columns="2" style="width:100%" 
+															columnClasses="label,value">
 												            								 
 												     <h:outputText value="DDD:" />
 												     <h:outputText value="#{fone.ddd}" />
