@@ -32,8 +32,6 @@ public class Telefone implements Serializable {
 	@Size(min = 8, max = 9, message = "O telefone deve possuir 8 ou 9 números!")
 	private String numero;
 	
-	@NotNull(message = "O tipo de telefone não deve ser nulo!")
-	@NotBlank(message = "O tipo de telefone não deve estar em branco!")
 	private String tipo;
 	
 	@ManyToOne

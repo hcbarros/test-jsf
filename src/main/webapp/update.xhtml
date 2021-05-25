@@ -9,6 +9,7 @@
 
 	    <h:head>
 	        <title>Cadastro - SEFAZ</title>
+	        <h:outputScript library="js" name="index.js"  />
 	    </h:head>
 	    
 	    <h:body >
@@ -20,22 +21,40 @@
                 </p:layoutUnit>
 
 
+				<p:layoutUnit position="west" size="210" header="Opções" collapsible="true">
+                
+                    <h:form>
+	                    <p:menu style="width:188px">
+	                        <p:submenu >
+	                            	                 			                        
+	                            <p:menuitem ajax="false" action="/users.xhtml" value="Voltar"/>	                            
+	                            	           
+	                        </p:submenu>
+	
+	                    </p:menu>
+                    </h:form>
+                    
+                </p:layoutUnit>
+				
+
                 <p:layoutUnit position="center">
 	        
 	        
-			        <h:form>
+			        <h:form >
+			        	
+			        	<p:outputPanel style="font-size:35px; margin: 20px 0px 30px 0px">
+			        		<p:outputLabel value="Editar usuário" />
+			        	</p:outputPanel>
 			        
 			        	<p:outputLabel binding="#{update.mybutton}" id="mybutton" />
 			        
-			            <h:panelGrid id="form">
+			            <h:panelGrid columns="2"  columnClasses="label,value">
 			                
 			                <h:outputText value="Nome:" />
 			                <p:inputText id="nome" required="true" maxlength="100"
 		        						requiredMessage="Informe um Nome" value="#{update.usuario.nome}" >
 			                </p:inputText>      
-							<a style="color:red; font-size: 20px">
-			                	<p:message for="nome" />
-			                </a>
+			                
 			                
 			                <h:outputText value="Email:" />
 			                <p:inputText id="email" required="true" maxlength="100"
@@ -44,9 +63,7 @@
 		        				<f:validateRegex
 		        					pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />		
 			                </p:inputText>      
-							<a style="color:red; font-size: 20px">
-			                	<p:message for="email" />
-			                </a>
+
 			
 			                <h:outputText value="Senha:" />
 			                <p:inputText id="senha" value="#{update.usuario.senha}" required="true" 
@@ -55,20 +72,22 @@
 			                
 			                	<f:validateLength minimum="6" maximum="50" />
 			                </p:inputText>
-			                <a style="color:red; font-size: 20px">
-			                	<p:message for="senha" />
-			                </a>
 			                
-			                <p:carousel id="carrosel" style="width:300px; height:100%" value="#{update.telefones}" var="fone" 
-				                           		itemStyle="height:60%;margin:10px auto;" numVisible="1" 
-				                           		easing="easeOutBounce" circular="true" headerText="Telefones">
+			                
+			                <h:outputText />
+			                
+			                <p:carousel rendered="#{not empty update.telefones}" id="carrosel" 
+			                			style="width:300px; height:100%; margin-top:20px" 
+			                			value="#{update.telefones}" var="fone" itemStyle="height:60%;margin:10px auto;" 
+			                			numVisible="1" easing="easeOutBounce" circular="true" headerText="Telefones">
 												    
 									<h:panelGrid columns="2"  columnClasses="label,value">
 												            								 
 											<h:outputText value="DDD:" />
 											<p:inputText id="ddd" style="width:100px" value="#{fone.ddd}" maxlength="2" required="true" 
 							                			requiredMessage="Informe um DDD"
-						        						validatorMessage="O DDD deve ter 2 números!" >
+						        						validatorMessage="O DDD deve possuir 2 números!" 
+						        						onkeyup="mascara(this.id)" onkeydown="mascara(this.id)">
 							                
 							                	<f:validateLength minimum="2" maximum="2" />
 							                </p:inputText>
@@ -76,7 +95,8 @@
 											<h:outputText value="Número:" />
 											<p:inputText id="numero" style="width:100px" value="#{fone.numero}" maxlength="9" required="true" 
 							                			requiredMessage="Informe um número!"
-						        						validatorMessage="O telefone deve ter 8 ou 9 números!" >
+						        						validatorMessage="O telefone deve ter 8 ou 9 números!" 
+						        						onkeyup="mascara(this.id)" onkeydown="mascara(this.id)">
 							                
 							                	<f:validateLength minimum="8" maximum="9" />
 							                </p:inputText>								 
@@ -109,9 +129,15 @@
 			            </h:panelGrid>
 			           
 			            <br></br>
-			            <p:commandButton ajax="false" action="#{update.editar()}" value="Editar" />
+			            <p:commandButton ajax="false" style = "margin-left:62px"
+			            		action="#{update.editar()}" value="Editar" />
 			            
-			            <a style="color:red; font-size: 20px"><h:message for="mybutton" /></a>
+			            <a style="color:red; font-size: 20px">
+			            	<h:message for="mybutton" />
+			                <h:message style="margin-left:20px" for="nome" /> 
+			            	<h:message style="margin-left:20px" for="email" />
+			            	<h:message style="margin-left:20px" for="senha" />
+			            </a>
 			            
 			        </h:form>
 	        
