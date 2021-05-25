@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:view contentType="text/html">
+
+	    <h:head>
+	        <title>Cadastro - SEFAZ</title>
+	    </h:head>
+	    
+	    <h:body >
+	        
+	        <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    <p:graphicImage style="width: 180px; margin-left: 20px;" library="imagens" name="logo.png"/>
+                </p:layoutUnit>
+
+
+                <p:layoutUnit position="center">
+	        
+	        
+			        <h:form>
+			        
+			        	<p:outputLabel binding="#{login.mybutton}" id="mybutton" />
+			        
+			            
+			           
+			            <br></br>
+			            <p:commandButton ajax="false"
+			                     actionListener="#{update.editar()}" value="Editar" />
+			            <a style="color:red; font-size: 20px"><h:message for="mybutton" /></a>
+			            
+			        </h:form>
+	        
+				</p:layoutUnit>
+				
+			</p:layout>	
+				
+	    </h:body>
+    
+    </f:view>
+</html>

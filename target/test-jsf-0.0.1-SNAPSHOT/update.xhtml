@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:view contentType="text/html">
+
+	    <h:head>
+	        <title>Cadastro - SEFAZ</title>
+	        <h:outputScript library="js" name="index.js"  />
+	    </h:head>
+	    
+	    <h:body >
+	        
+	        <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    <p:graphicImage style="width: 180px; margin-left: 20px;" library="imagens" name="logo.png"/>
+                </p:layoutUnit>
+
+
+				<p:layoutUnit position="west" size="210" header="Opções" collapsible="true">
+                
+                    <h:form>
+	                    <p:menu style="width:188px">
+	                        <p:submenu >
+	                            	                 			                        
+	                            <p:menuitem ajax="false" action="/users.xhtml" value="Voltar"/>	                            
+	                            	           
+	                        </p:submenu>
+	
+	                    </p:menu>
+                    </h:form>
+                    
+                </p:layoutUnit>
+				
+
+                <p:layoutUnit position="center">
+	        
+	        
+			        <h:form >
+			        	
+			        	<p:outputPanel style="font-size:35px; margin: 20px 0px 30px 0px">
+			        		<p:outputLabel value="Editar usuário" />
+			        	</p:outputPanel>
+			        
+			        	<p:outputLabel binding="#{update.mybutton}" id="mybutton" />
+			        
+			            <h:panelGrid columns="2"  columnClasses="label,value">
+			                
+			                <h:outputText value="Nome:" />
+			                <p:inputText id="nome" required="true" maxlength="100"
+		        						requiredMessage="Informe um Nome" value="#{update.usuario.nome}" >
+			                </p:inputText>      
+			                
+			                
+			                <h:outputText value="Email:" />
+			                <p:inputText id="email" required="true" maxlength="100"
+		        						requiredMessage="Informe um email"
+		        						validatorMessage="Formato de email inválido!" value="#{update.usuario.email}" >
+		        				<f:validateRegex
+		        					pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />		
+			                </p:inputText>      
+
+			
+			                <h:outputText value="Senha:" />
+			                <p:inputText id="senha" value="#{update.usuario.senha}" required="true" 
+			                			requiredMessage="Informe a senha"
+		        						validatorMessage="A senha deve possuir entre 6 e 50 caracteres!" >
+			                
+			                	<f:validateLength minimum="6" maximum="50" />
+			                </p:inputText>
+			                
+			                
+			                <h:outputText />
+			                
+			                <p:carousel rendered="#{not empty update.telefones}" id="carrosel" 
+			                			style="width:300px; height:100%; margin-top:20px" 
+			                			value="#{update.telefones}" var="fone" itemStyle="height:60%;margin:10px auto;" 
+			                			numVisible="1" easing="easeOutBounce" circular="true" headerText="Telefones">
+												    
+									<h:panelGrid columns="2"  columnClasses="label,value">
+												            								 
+											<h:outputText value="DDD:" />
+											<p:inputText id="ddd" style="width:100px" value="#{fone.ddd}" maxlength="2" required="true" 
+							                			requiredMessage="Informe um DDD"
+						        						validatorMessage="O DDD deve possuir 2 números!" 
+						        						onkeyup="mascara(this.id)" onkeydown="mascara(this.id)">
+							                
+							                	<f:validateLength minimum="2" maximum="2" />
+							                </p:inputText>
+												 
+											<h:outputText value="Número:" />
+											<p:inputText id="numero" style="width:100px" value="#{fone.numero}" maxlength="9" required="true" 
+							                			requiredMessage="Informe um número!"
+						        						validatorMessage="O telefone deve ter 8 ou 9 números!" 
+						        						onkeyup="mascara(this.id)" onkeydown="mascara(this.id)">
+							                
+							                	<f:validateLength minimum="8" maximum="9" />
+							                </p:inputText>								 
+												           
+											<h:outputText value="Tipo:" />
+											<p:selectOneMenu id="tipo" value="#{fone.tipo}" style="width:86px">
+				                                <f:selectItem itemLabel="celular" itemValue="celular" />
+				                                <f:selectItem itemLabel="fixo" itemValue="fixo" />                                
+				                            </p:selectOneMenu>  
+				                            
+				                            <p:commandButton ajax="false" value="excluir" style="margin-top:10px;"
+				                            				actionListener="#{update.excluirNumero(fone)}" >
+		                                	
+				                                  <f:ajax execute="@this" render="carrosel" />	                                            	
+				                            </p:commandButton>
+				                            
+				                            <h:outputLabel>
+					                            <a style="color:red; font-size: 20px">
+								                	<p:message for="ddd" />
+								                	<p:message for="numero" />
+								                	<p:message for="tipo" />
+								                </a>
+								            </h:outputLabel>    
+												           
+									</h:panelGrid>
+												
+							</p:carousel>
+			                
+			                
+			            </h:panelGrid>
+			           
+			            <br></br>
+			            <p:commandButton ajax="false" style = "margin-left:62px"
+			            		action="#{update.editar()}" value="Editar" />
+			            
+			            <a style="color:red; font-size: 20px">
+			            	<h:message for="mybutton" />
+			                <h:message style="margin-left:20px" for="nome" /> 
+			            	<h:message style="margin-left:20px" for="email" />
+			            	<h:message style="margin-left:20px" for="senha" />
+			            </a>
+			            
+			        </h:form>
+	        
+				</p:layoutUnit>
+				
+			</p:layout>	
+				
+	    </h:body>
+    
+    </f:view>
+</html>
