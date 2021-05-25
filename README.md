@@ -13,3 +13,6 @@ JAX-RS 2.1, JBoss Maven Integration 1.0 e JPA 2.2.
 Para executar a aplicação, deve-se instalar as dependências do projeto, adicionar o servidor Wildfly ao Eclipse e adicionar o projeto ao servidor.
 
 após inicializar o servidor, a aplicação estará disponivel na porta 8080 através da url http://localhost:8080 ou http://localhost:8080/login.xhtml
+
+Para realizar o login na pagina inicial, pode-se utilizar o email josealexandre@gmail.com e a senha hBuxA23 já que o projeto inicializa com uma
+carga de dados no banco.
