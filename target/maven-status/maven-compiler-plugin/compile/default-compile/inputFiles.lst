@@ -1,9 +1,0 @@
-/home/henrique/workspace-spring-tool/test-jsf/src/main/java/br/com/usuarios_jsf/bean/Login.java
-/home/henrique/workspace-spring-tool/test-jsf/src/main/java/br/com/usuarios_jsf/bean/servlet/VerifyRecaptcha.java
-/home/henrique/workspace-spring-tool/test-jsf/src/main/java/br/com/usuarios_jsf/bean/UserBean.java
-/home/henrique/workspace-spring-tool/test-jsf/src/main/java/br/com/usuarios_jsf/loader/Loader.java
-/home/henrique/workspace-spring-tool/test-jsf/src/main/java/br/com/usuarios_jsf/bean/Create.java
-/home/henrique/workspace-spring-tool/test-jsf/src/main/java/br/com/usuarios_jsf/model/Telefone.java
-/home/henrique/workspace-spring-tool/test-jsf/src/main/java/br/com/usuarios_jsf/model/Usuario.java
-/home/henrique/workspace-spring-tool/test-jsf/src/main/java/br/com/usuarios_jsf/bean/Update.java
-/home/henrique/workspace-spring-tool/test-jsf/src/main/java/br/com/usuarios_jsf/service/UsuarioService.java
